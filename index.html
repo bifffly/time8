@@ -3,20 +3,31 @@
     <title>What time is it?</title>
   </head>
   <body>
-    <h1>What time is it?</h1>
-    <span id="time"></span>
+    <h1>What time is it...</h1>
+    <span id="loc">...Where I am?</span>
+    <span id="lon">...In London?</span>
+    <span id="sea">...In Seattle?</span>
+    <span id="hon">...In Honolulu?</span>
+    <span id="tok">...In Tokyo?</span>
     <script>
-      var span = document.getElementById("time");
-      function time8() {
-        let t = new Date();
-        let secs = 3600*t.getHours() + 60*t.getMinutes() + t.getSeconds();
+      var loc = document.getElementById("loc");
+      var lon = document.getElementById("lon");
+      var sea = document.getElementById("sea");
+      var hon = document.getElementById("hon");
+      var tok = document.getElementById("tok");
+      function time8(dateobj, span) {
+        let secs = 3600*dateobj.getHours() + 60*dateobj.getMinutes() + dateobj.getSeconds();
         let secs8 = secs*(512/86400);
         let h = Math.floor(secs8 / 64);
         let m = Math.floor((secs8 % 64) / 8);
         let s = (secs8 % 8).toFixed(3);
-        span.textContent = "It is " + h + ":" + m + ":" + s
+        span.textContent += " It is " + h + ":" + m + ":" + s
       }
-      setInterval(time8, 1);
+      setInterval(time8, 1, new Date(), loc);
+      setInterval(time8, 1, new Date(newDate().getTime()), loc);
+      setInterval(time8, 1, new Date(newDate().getTime() - 7*3600*1000), loc);
+      setInterval(time8, 1, new Date(newDate().getTime() - 10*3600*1000), loc);
+      setInterval(time8, 1, new Date(newDate().getTime() + 9*3600*1000), loc);
     </script>
   </body>
 </html>
