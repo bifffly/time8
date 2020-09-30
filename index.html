@@ -10,11 +10,11 @@
     <span id="hon">...In Honolulu?</span>
     <span id="tok">...In Tokyo?</span>
     <script>
-      var loc = document.getElementById("loc");
-      var lon = document.getElementById("lon");
-      var sea = document.getElementById("sea");
-      var hon = document.getElementById("hon");
-      var tok = document.getElementById("tok");
+      let loc = document.getElementById("loc");
+      let lon = document.getElementById("lon");
+      let sea = document.getElementById("sea");
+      let hon = document.getElementById("hon");
+      let tok = document.getElementById("tok");
       function time8(dateobj, span) {
         let secs = 3600*dateobj.getHours() + 60*dateobj.getMinutes() + dateobj.getSeconds();
         let secs8 = secs*(512/86400);
@@ -24,10 +24,10 @@
         span.textContent += " It is " + h + ":" + m + ":" + s
       }
       setInterval(time8, 1, new Date(), loc);
-      setInterval(time8, 1, new Date(newDate().getTime()), loc);
-      setInterval(time8, 1, new Date(newDate().getTime() - 7*3600*1000), loc);
-      setInterval(time8, 1, new Date(newDate().getTime() - 10*3600*1000), loc);
-      setInterval(time8, 1, new Date(newDate().getTime() + 9*3600*1000), loc);
+      setInterval(time8, 1, new Date(newDate().getTime()), lon);
+      setInterval(time8, 1, new Date(newDate().getTime() - 7*3600*1000), sea);
+      setInterval(time8, 1, new Date(newDate().getTime() - 10*3600*1000), hon);
+      setInterval(time8, 1, new Date(newDate().getTime() + 9*3600*1000), tok);
     </script>
   </body>
 </html>
