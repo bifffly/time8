@@ -21,7 +21,7 @@
         let h = Math.floor(secs8 / 64);
         let m = Math.floor((secs8 % 64) / 8);
         let s = (secs8 % 8).toFixed(3);
-        span.textContent += " It is " + h + ":" + m + ":" + s
+        span.textContent = " It is " + h + ":" + m + ":" + s
       }
       setInterval(time8, 1, new Date(), loc);
       setInterval(time8, 1, new Date(newDate().getTime()), lon);
