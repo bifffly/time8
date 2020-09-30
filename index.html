@@ -13,7 +13,7 @@
         let secs8 = secs*(512/86400);
         let h = Math.floor(secs8 / 64);
         let m = Math.floor((secs8 % 64) / 8);
-        let s = (secs8 % 8).toFixed(2);
+        let s = (secs8 % 8).toFixed(3);
         span.textContent = "It is " + h + ":" + m + ":" + s
       }
       setInterval(time8, 1);
