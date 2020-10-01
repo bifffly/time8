@@ -7,7 +7,8 @@
     <span id="time"></span>
     <script>
       let span = document.getElementById("time");
-      function time8(dateobj) {
+      function time8() {
+        let dateobj = new Date();
         let secs = 3600*dateobj.getHours() + 60*dateobj.getMinutes() + dateobj.getSeconds();
         let secs8 = secs*(512/86400);
         let h = Math.floor(secs8 / 64);
